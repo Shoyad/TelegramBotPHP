@@ -1125,7 +1125,11 @@ class Telegram {
      * \param $local_file_path String File path where save the file
      */
     public function downloadFile($telegram_file_path, $local_file_path) {
+	    
         $file_url = "https://api.telegram.org/file/bot" . $this->bot_id . "/" . $telegram_file_path;
+	// It works 
+	file_put_contents($local_file_path, file_get_contents($file_url));
+	    
         $in = fopen($file_url, "rb");
         $out = fopen($local_file_path, "wb");
 
